@@ -18,5 +18,3 @@ class HvSupplyNnAnalyzer(object):
     def analyze_state(self, *args, **kwargs):
         pass
 
-    __NEGATIVE_POLARITY = 1
-    __POSITIVE_POLARITY = 2
