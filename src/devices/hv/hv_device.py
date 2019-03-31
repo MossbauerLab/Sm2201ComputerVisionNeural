@@ -32,6 +32,7 @@ class HvDevice(ABC):
         """
         return False
 
+    @abstractmethod
     def get_overload_state(self):
         raise NotImplementedError(u'abstract method')
 
