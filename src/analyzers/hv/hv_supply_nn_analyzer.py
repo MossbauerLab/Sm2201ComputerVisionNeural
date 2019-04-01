@@ -11,10 +11,17 @@ from abc import *
 """
 
 
-class HvSupplyNnAnalyzer(object):
+class HvSupplyNnAnalyzer(ABC):
     def __init(self):
         pass
 
+    @abstractmethod
     def analyze_state(self, *args, **kwargs):
-        pass
+        """
+            Analyze state based on CV with keras
+        :param args:
+        :param kwargs:
+        :return: Should return instance of HvDevice
+        """
+        raise NotImplementedError(u'')
 
