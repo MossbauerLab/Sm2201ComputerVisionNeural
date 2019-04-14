@@ -16,6 +16,10 @@ class HvSupplyNnAnalyzer(ABC):
         pass
 
     @abstractmethod
+    def train(self):
+        raise NotImplementedError(u'train is an abstract method')
+
+    @abstractmethod
     def analyze_state(self, *args, **kwargs):
         """
             Analyze state based on CV with keras
@@ -23,5 +27,5 @@ class HvSupplyNnAnalyzer(ABC):
         :param kwargs:
         :return: Should return instance of HvDevice
         """
-        raise NotImplementedError(u'')
+        raise NotImplementedError(u'analyze_state is an abstract method')
 

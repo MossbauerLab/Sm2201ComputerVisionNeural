@@ -1,9 +1,30 @@
+# from keras.preprocessing import image
+from keras.models import Sequential
+from keras.layers import Dense
+import numpy
+
 from src.devices.hv.hv_device import *
 from src.analyzers.hv.hv_supply_nn_analyzer import *
 
 
 class Mkp011HvNnAnalyzer(HvSupplyNnAnalyzer):
-    def __init__(self):
+    def __init__(self, model_path, model=None):
+        """
+           Class constructor
+        :param model_path: a path where to save trained model
+        :param model: model json
+        """
+        self._model_path = model_path
+        self._model = model
+        if model is not None:
+            # try load it from json ...
+            pass
+
+    def train(self):
+        """
+           train, produce model file (json)
+        :return: None
+        """
         pass
 
     def analyze_state(self, *args, **kwargs):
@@ -25,4 +46,7 @@ class Mkp011HvNnAnalyzer(HvSupplyNnAnalyzer):
         return hv_device
 
     __IMAGE_KEY = "IMAGE"
+
+    _model = u''
+    _model_path = u''
 
