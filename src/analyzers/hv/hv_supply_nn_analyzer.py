@@ -16,7 +16,7 @@ class HvSupplyNnAnalyzer(ABC):
         pass
 
     @abstractmethod
-    def train(self):
+    def train(self, train_data, export):
         raise NotImplementedError(u'train is an abstract method')
 
     @abstractmethod
