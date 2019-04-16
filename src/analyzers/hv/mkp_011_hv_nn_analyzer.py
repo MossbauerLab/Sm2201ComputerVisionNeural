@@ -10,9 +10,13 @@ from keras.layers import *
 from src.devices.hv.hv_device import *
 from src.analyzers.hv.hv_supply_nn_analyzer import *
 
+"""
+    Model for analyze Mkp011 with neural network
+"""
+
 
 class Mkp011HvNnAnalyzer(HvSupplyNnAnalyzer):
-    def __init__(self, model_path, nn_model=None):
+    def __init__(self, model_path=u'./nn_models', nn_model=None):
         """
            Class constructor
         :param model_path: a path where to save / load trained model, names are predefined in __MODEL_FILE and
@@ -34,6 +38,8 @@ class Mkp011HvNnAnalyzer(HvSupplyNnAnalyzer):
             except Exception as e:
                 # TODO: umv: log an error
                 pass
+        # TODO: umv: this is a copy-paste: at CURRENT moment i don't have a model of my NN
+        self._nn_model.compile(loss="categorical_crossentropy", optimizer="SGD", metrics=["accuracy"])
 
     def train(self, train_data, export):
         """
@@ -71,6 +77,6 @@ class Mkp011HvNnAnalyzer(HvSupplyNnAnalyzer):
     __IMAGE_KEY = u'IMAGE'
 
     _nn_model = None
-    _model_file = u''
+    # _model_file = u''
     _model_path = u''
 
