@@ -9,7 +9,7 @@ from keras.layers import Dense, Activation
 class LedAnalyzer(object):
     def __init__(self, model_path=u'./nn_models', nn_model=None):
         """
-            Simple LED analyzer
+            Simple LED state analyzer
         :param model_path:
         :param nn_model:
         """
@@ -30,7 +30,9 @@ class LedAnalyzer(object):
         :return:
         """
         model = Sequential([
-            # Dense(input_dim=(3, self.__INPUT_LAYER_DEFAULT_DENSITY, self.__INPUT_LAYER_DEFAULT_DENSITY), output_dim=2)
+            # FIRST LAYER: units - number of neurons, according to many manual - it is empirical value
+            # I've started from 32
+            Dense(32, input_dim=(3, self.__INPUT_LAYER_DEFAULT_DENSITY, self.__INPUT_LAYER_DEFAULT_DENSITY), output_dim=2)
         ])
         pass
 
